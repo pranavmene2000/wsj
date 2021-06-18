@@ -1,0 +1,10 @@
+.MuiToolbar-dense {
+  min-height: 0px !important;
+}
+.active--link {
+  color: black;
+  font-weight: "bolder";
+}
+.MuiAppBar-colorTransparent {
+  background-color: white !important;
+}
