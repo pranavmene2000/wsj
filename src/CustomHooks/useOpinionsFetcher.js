@@ -1,19 +1,20 @@
+import Axios from '../Axios'
 import { useEffect, useState } from "react"
 
-const useOpinionsFetcher = (fetcherFun) => {
+const useOpinionsFetcher = (endpoint) => {
     const [opinions, setOpinions] = useState([])
 
     useEffect(() => {
 
         const fetchData = async () => {
-            fetcherFun().then(({ data: { results } }) => {
+            Axios.get(endpoint).then(({ data: { results } }) => {
                 setOpinions(results)
             })
         }
 
         fetchData()
 
-    }, [fetcherFun])
+    }, [endpoint])
 
     return {
         opinions

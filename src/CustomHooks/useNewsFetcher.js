@@ -1,6 +1,7 @@
+import Axios from '../Axios'
 import { useEffect, useState } from "react"
 
-const useNewsFetcher = (fetcherFun) => {
+const useNewsFetcher = (endpoint) => {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
     const [articles, setArticles] = useState([])
@@ -9,20 +10,18 @@ const useNewsFetcher = (fetcherFun) => {
 
         const fetchData = async () => {
             setIsLoading(true)
-            fetcherFun()
+            Axios.get(endpoint)
                 .then(({ data: { articles } }) => {
                     setArticles(articles)
                     setIsLoading(false)
+                    console.log(articles)
                 })
-                .catch((error) => {
-                    setError('You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.')
-                    setIsLoading(false)
-                })
+                .catch(error => setError(error))
         }
 
         fetchData()
 
-    }, [fetcherFun])
+    }, [endpoint])
 
     return {
         isLoading,

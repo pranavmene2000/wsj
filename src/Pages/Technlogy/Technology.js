@@ -1,5 +1,5 @@
 import React from 'react'
-import { fetchTechnlogy, fetchOpinions } from '../../Services/API_SERVICE'
+import { fetchTechnlogy, fetchOpinions } from '../../API_ENDPOINTS/API_ENDPOINTS'
 import NewsOne from '../../Components/NewsOne'
 import NewsTwo from '../../Components/NewsTwo'
 import NewsThree from '../../Components/NewsThree'

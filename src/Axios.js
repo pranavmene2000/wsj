@@ -3,5 +3,5 @@ import axios from 'axios';
 export const AXIOS = axios
 
 export default axios.create({
-    baseURL: `https://newsapi.org/v2`
+    baseURL: `https://wsjnewsapiserver.herokuapp.com`
 });
